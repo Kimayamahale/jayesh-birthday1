@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Jayesh ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #090909, #1b0d16, #2a1020);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: #ffb6d9;
+      font-family: 'Dancing Script', cursive;
+      animation: glow 2s infinite alternate;
+    }
+
+    .hero h2 {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      color: #ffe6f0;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      max-width: 700px;
+      line-height: 1.8;
+      color: #f5dbe6;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      border: none;
+      background: linear-gradient(45deg, #ff4f9a, #ff8bc2);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.7rem;
+      margin-bottom: 40px;
+      color: #ffb6d9;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .message-box {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255,255,255,0.06);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(8px);
+      line-height: 2;
+      font-size: 1rem;
+      color: #ffeef5;
+      box-shadow: 0 0 25px rgba(255,255,255,0.08);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(255, 182, 217, 0.3);
+      transition: 0.4s;
+    }
+
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.03);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #ffdce8;
+      font-size: 1.1rem;
+    }
+
+    .heart {
+      position: fixed;
+      top: -20px;
+      color: #ff69b4;
+      animation: fall linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 25px #ff69b4, 0 0 50px #ff1493;
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media(max-width:768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <div id="password-screen" style="position:fixed; inset:0; background:linear-gradient(to bottom, #090909, #1b0d16, #2a1020); z-index:99999; display:flex; justify-content:center; align-items:center; padding:20px;">
+
+    <div style="background:rgba(255,255,255,0.08); padding:40px; border-radius:30px; text-align:center; max-width:400px; width:100%; backdrop-filter:blur(10px); box-shadow:0 0 30px rgba(255,105,180,0.3);">
+
+      <h1 style="font-family:'Dancing Script', cursive; font-size:3rem; color:#ffb6d9; margin-bottom:15px;">
+        A Special Surprise 💖
+      </h1>
+
+      <p style="margin-bottom:25px; color:#ffe6f0; line-height:1.8;">
+        Enter the secret password to open your birthday surprise 🎁✨
+      </p>
+
+      <input
+        type="password"
+        id="password-input"
+        placeholder="Enter Password ❤️"
+        style="width:100%; padding:14px; border:none; border-radius:15px; outline:none; font-size:1rem; margin-bottom:20px;"
+      >
+
+      <button onclick="checkPassword()"
+        style="padding:12px 30px; border:none; border-radius:30px; background:linear-gradient(45deg,#ff4f9a,#ff8bc2); color:white; font-size:1rem; cursor:pointer;">
+        Open Surprise ✨
+      </button>
+
+      <p id="error-message" style="margin-top:18px; color:#ffb3c7;"></p>
+
+    </div>
+  </div>
+
+  <!-- SONG -->
+  <!-- Replace meherbaan.mp3 with your song file name -->
+  <audio autoplay loop controls>
+    <source src="meherbaan.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Happy Birthday Jayesh ❤️</h1>
+    <h2>To The Most Special Person In My Life ✨</h2>
+    <p>
+      Every moment with you became a memory worth keeping forever 💞
+    </p>
+
+    <a href="#message" class="btn">Open Your Surprise 🎁</a>
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="message">
+    <h2 class="section-title">A Message For You 💌</h2>
+
+    <div class="message-box">
+      ✨ Happy Birthday My Love 💞🎂✨<br><br>
+
+      It’s been <b>11 months and 9 days</b> since we’ve been together 🫶🏻, and I am truly so happy to be a part of your special day ❤️.
+      Last year, we were not in a relationship, but I’m really glad that we still celebrated our birthdays together 🎉.
+      And now look at us… this year we are celebrating each other’s birthdays as a couple 🥹💖.<br><br>
+
+      I hope we celebrate many more birthdays together till we grow old 👴🏻👵🏻 and create countless beautiful memories together 📸💕.<br><br>
+
+      Speaking about you, my bubbuuu 🥺❤️
+      You are honestly the best decision of my life 🌍💫.
+      Because of you, my life has become brighter ☀️.
+      The things I’ve learned from you and the memories we’ve created together would never have felt this special with anyone else 💞.<br><br>
+
+      I know that from the past few days we haven’t been on the best terms 💔, and I know I haven’t been making enough efforts or making you feel as special as you truly deserve 😔.
+      I’m really sorry for that 🥺🙏🏻.
+      But I promise I will make things better ❤️‍🩹.
+      I’ll try my best to make you happy in every possible way and win your heart again and again 💖✨.<br><br>
+
+      And remember… even if I say bad things sometimes 😤👉🏻👈🏻, deep down all I truly want is for you to stay with me forever 🫂❤️ because I love you so much 😭💘.<br><br>
+
+      I really hope this bond of ours stays forever ♾️💑.<br><br>
+
+      Also, I want you to stay positive about your life 🌈✨ and focus on your career 📚💼.
+      I know life has given you many difficult situations 😔, but from the past few months I’ve also seen you slowly coming out of many problems 🌻.<br><br>
+
+      I know healing takes time ⏳ and it’s not easy… but one thing I know for sure is that you are <b>Jayesh Yeole</b> 💪🏻🔥 — someone who can make anything possible.<br><br>
+
+      I want you to dream bigger 🌌, achieve more 🏆, and become so successful that one day your parents proudly say 🥹❤️:
+      <br><br>
+
+      “Though our son made mistakes, today he has achieved everything in life and is giving us every happiness.” 🌟<br><br>
+
+      I know the journey won’t be easy 🚶🏻‍♂️, but I know YOU can do it, Bubbuu 🫶🏻💖.<br><br>
+
+      ✨ Once again, Many Many Happy Birthday to you, my love 🎂🎉💞✨<br><br>
+
+      Lastly, I pray to God 🙏🏻 that you always stay happy 😊, healthy 🌿, successful 🌟, and surrounded by love ❤️ forever.<br><br>
+
+      💖 Yours always 💖<br>
+      ✨ Kimaya ✨
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section>
+    <h2 class="section-title">Our Beautiful Memories 📸</h2>
+
+    <div class="gallery">
+
+      <!-- ADD YOUR 31 PHOTOS HERE -->
+      <!-- Replace photo1.jpg with your real file names -->
+
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+      <img src="photo4.jpg">
+      <img src="photo5.jpg">
+      <img src="photo6.jpg">
+      <img src="photo7.jpg">
+      <img src="photo8.jpg">
+      <img src="photo9.jpg">
+      <img src="photo10.jpg">
+      <img src="photo11.jpg">
+      <img src="photo12.jpg">
+      <img src="photo13.jpg">
+      <img src="photo14.jpg">
+      <img src="photo15.jpg">
+      <img src="photo16.jpg">
+      <img src="photo17.jpg">
+      <img src="photo18.jpg">
+      <img src="photo19.jpg">
+      <img src="photo20.jpg">
+      <img src="photo21.jpg">
+      <img src="photo22.jpg">
+      <img src="photo23.jpg">
+      <img src="photo24.jpg">
+      <img src="photo25.jpg">
+      <img src="photo26.jpg">
+      <img src="photo27.jpg">
+      <img src="photo28.jpg">
+      <img src="photo29.jpg">
+      <img src="photo30.jpg">
+      <img src="photo31.jpg">
+
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section>
+    <h2 class="section-title">Our Videos Together 🎥</h2>
+
+    <div class="gallery">
+
+      <!-- ADD YOUR 15 VIDEOS HERE -->
+      <!-- Replace video1.mp4 with your real file names -->
+
+      <video controls src="video1.mp4"></video>
+      <video controls src="video2.mp4"></video>
+      <video controls src="video3.mp4"></video>
+      <video controls src="video4.mp4"></video>
+      <video controls src="video5.mp4"></video>
+      <video controls src="video6.mp4"></video>
+      <video controls src="video7.mp4"></video>
+      <video controls src="video8.mp4"></video>
+      <video controls src="video9.mp4"></video>
+      <video controls src="video10.mp4"></video>
+      <video controls src="video11.mp4"></video>
+      <video controls src="video12.mp4"></video>
+      <video controls src="video13.mp4"></video>
+      <video controls src="video14.mp4"></video>
+      <video controls src="video15.mp4"></video>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Made with Endless Love ❤️ By Kimaya ✨
+  </div>
+
+  <script>
+    // Floating Hearts Animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // PASSWORD PROTECTION
+    function checkPassword() {
+      const password = document.getElementById('password-input').value;
+      const correctPassword = 'bubuu❤️duguu';
+
+      if(password === correctPassword) {
+        document.getElementById('password-screen').style.display = 'none';
+      } else {
+        document.getElementById('error-message').innerText = 'Wrong Password 🥺❤️';
+      }
+    }
+  </script>
+
+</body>
+</html>
